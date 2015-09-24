@@ -1,3 +1,36 @@
+#Why this checkout
+I was not able to find simple Avro decoder in Camus. Means to insert simple Avro bytes to kafka and then consume by Camus.
+For that i have wrote a test producer for kafka you can checkout it from [here][kfk-producer].
+You can use [AvroKafkaProducerExample.java][avrodecoder] to populate data into kafka.
+
+Now you can run Camus simply by following below instructions, But if you don't have hadoop or want go though/debug java code. Then you can follow second step.
+
+1. If you want to run the job through Hadoop follow below steps:
+
+    ```
+    cd camus-example/
+    mvn clean package
+    hadoop fs -mkdir -p /user/testuser/camus
+    hadoop jar target/camus-example-0.1.0-SNAPSHOT-shaded.jar com.linkedin.camus.etl.kafka.CamusJob -P src/main/resources/camus.properties 
+    ```
+
+2. If you want to run it from IDE (Tested with java1.6 only)
+
+    * Create a dir 
+    `mkdir -p /tmp/hadoopdata/camus/`
+    * Run main function of [Test.java][test-java]
+    * If you got an error _"cannot find symbol symbol method getOptionProperties(java.lang.String)"_
+    * Then comment a line no 690(props.putAll(cmd.getOptionProperties("D"));) from CamusJob.java.
+    * Run the Test.java again
+
+
+#####If you find any other issue please drop me line
+  
+
+###Disclaimer
+This code is checked out from [linkedin/camus](https://github.com/linkedin/camus), Below is the documentation for original source.
+___________________________________________________________________________________________
+
 ####Camus is being phased out and replaced by [Gobblin](https://github.com/linkedin/gobblin). For those using or interested in Camus, we suggest taking a look at Gobblin.
 
 # Intro
@@ -129,3 +162,7 @@ usage: hadoop jar camus-example-<version>-SNAPSHOT.jar com.linkedin.camus.etl.ka
  -P <arg>              external properties filename
  -p <arg>              properties filename from the classpath
 ```
+
+[test-java]:<https://github.com/chandanbansal/kafka-producer-consumer/blob/master/src/main/java/com/chandan/kafka/producer/AvroKafkaProducerExample.java>
+[kfk-producer]:<https://github.com/chandanbansal/kafka-producer-consumer>
+[avrodecoder]:<https://github.com/chandanbansal/kafka-producer-consumer/blob/master/src/main/java/com/chandan/kafka/producer/AvroKafkaProducerExample.java>
