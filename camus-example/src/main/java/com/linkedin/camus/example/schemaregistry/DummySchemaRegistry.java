@@ -1,11 +1,9 @@
 package com.linkedin.camus.example.schemaregistry;
 
-import org.apache.avro.Schema;
-import org.apache.hadoop.conf.Configuration;
-
-import com.linkedin.camus.example.records.DummyLog;
-import com.linkedin.camus.example.records.DummyLog2;
+import com.linkedin.camus.example.records.PageVisits;
 import com.linkedin.camus.schemaregistry.MemorySchemaRegistry;
+import org.apache.avro.Schema;
+import org.apache.log4j.Logger;
 
 
 /**
@@ -14,9 +12,14 @@ import com.linkedin.camus.schemaregistry.MemorySchemaRegistry;
  * camus.properties
  */
 public class DummySchemaRegistry extends MemorySchemaRegistry<Schema> {
-  public DummySchemaRegistry(Configuration conf) {
+  private static final Logger log = Logger.getLogger(DummySchemaRegistry.class);
+
+  public DummySchemaRegistry() {
     super();
-    super.register("DUMMY_LOG", DummyLog.newBuilder().build().getSchema());
-    super.register("DUMMY_LOG_2", DummyLog2.newBuilder().build().getSchema());
+    log.info("######### START Registering schema ##############");
+//    super.register("DUMMY_LOG", DummyLog.newBuilder().build().getSchema());
+//    super.register("DUMMY_LOG_2", DummyLog2.newBuilder().build().getSchema());
+    super.register("page_visits_avro", PageVisits.SCHEMA$);
+    log.info("######### END Registering schema ##############");
   }
 }

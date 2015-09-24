@@ -1,0 +1,10 @@
+{
+        "type": "record",
+        "namespace": "com.linkedin.camus.example.records",
+        "name": "PageVisits",
+        "fields": [
+                {"name": "time", "type": "long", "default" : 0},
+                {"name": "site", "type": "string"},
+                {"name": "ip", "type": "string"}
+        ]
+}

@@ -685,7 +685,8 @@ public class CamusJob extends Configured implements Tool {
       props.load(fStream);
       fStream.close();
     }
-
+    //this doesn't worked for me in intelliJ for java version >= 1.7. seems some library conflict issue.
+    // Didn't got time to looked into it. We can comment this line to test in IDE.
     props.putAll(cmd.getOptionProperties("D"));
 
     run();

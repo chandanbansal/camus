@@ -78,10 +78,23 @@
             <goals>
               <goal>shade</goal>
             </goals>
+              <configuration>
+                <filters>
+                  <filter>
+                    <artifact>*:*</artifact>
+                    <excludes>
+                      <exclude>META-INF/*.SF</exclude>
+                      <exclude>META-INF/*.DSA</exclude>
+                      <exclude>META-INF/*.RSA</exclude>
+                      <exclude>META-INF/LICENSE*</exclude>
+                      <exclude>license/*</exclude>
+                    </excludes>
+                  </filter>
+                </filters>
+            </configuration>
           </execution>
         </executions>
       </plugin>
     </plugins>
   </build>
-
 </project>
