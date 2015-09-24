@@ -7,8 +7,8 @@ import com.linkedin.camus.etl.kafka.CamusJob;
  */
 public class Test {
     public static void main(String[] args) throws Exception  {
-        String a[] = {"-P", "/tmp/camus.properties"};
-         CamusJob.main(a);
+        String a[] = {"-P", "camus-example/src/main/resources/camus-temp.properties"};
+        CamusJob.main(a);
     }
 
 }
