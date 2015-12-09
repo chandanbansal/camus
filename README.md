@@ -163,6 +163,6 @@ usage: hadoop jar camus-example-<version>-SNAPSHOT.jar com.linkedin.camus.etl.ka
  -p <arg>              properties filename from the classpath
 ```
 
-[test-java]:<https://github.com/chandanbansal/kafka-producer-consumer/blob/master/src/main/java/com/chandan/kafka/producer/AvroKafkaProducerExample.java>
+[test-java]:<https://github.com/chandanbansal/camus/blob/master/camus-example/src/main/java/com/linkedin/camus/example/test/Test.java>
 [kfk-producer]:<https://github.com/chandanbansal/kafka-producer-consumer>
 [avrodecoder]:<https://github.com/chandanbansal/kafka-producer-consumer/blob/master/src/main/java/com/chandan/kafka/producer/AvroKafkaProducerExample.java>
